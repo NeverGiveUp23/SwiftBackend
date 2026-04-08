@@ -20,8 +20,17 @@ func routes(_ app: Application) throws {
         let data = try req.content.decode(InfoData.self)
         return "Hello \(data.name)!"
     }
+    
+    app.post("request") { req -> InfoResponse in
+        let data = try req.content.decode(InfoData.self);
+        return InfoResponse(request: data)
+    }
 }
 
 struct InfoData: Content {
     let name: String
+}
+
+struct InfoResponse: Content {
+    let request: InfoData // conforms to Content and contains a property for the req.
 }
