@@ -4,7 +4,8 @@ import PackageDescription
 let package = Package(
     name: "HelloVapor",
     platforms: [
-       .macOS(.v13)
+       .macOS(.v14),
+       .iOS(.v18)
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
